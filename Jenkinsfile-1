@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image 'ltsc2019' }
+    docker { image 'mcr.microsoft.com/windows/servercore' }
   }
   stages {
     stage('Test') {
