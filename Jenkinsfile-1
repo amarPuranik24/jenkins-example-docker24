@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker { image '6.2.11-alpine' }
+    docker { image 'Windows' }
   }
   stages {
     stage('Test') {
