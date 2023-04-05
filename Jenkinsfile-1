@@ -2,12 +2,8 @@ pipeline {
   agent {
     docker { image 'mcr.microsoft.com/windows/servercore:ltsc2019' }
   }
-  stages {
-    stage('preparation') {
-	{git 'https://github.com/vbarhate/JavaVulnerableLabE.git'}
-      steps {
-([$class: 'CxScanBuilder', comment: '', credentialsId: 'dc0bb7ff-05d6-4d4b-adcc-7db3fc4cd5b9', customFields: '', excludeFolders: '', exclusionsSetting: 'job', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '!**/*.java', fullScanCycle: 10, groupId: '1', isProxy: false, password: '{AQAAABAAAAAQBdaBT2Fg/0TU2Hp/eToUCMcAvpps8w3txpbZkSQiBLE=}', preset: '0', projectName: 'pipelinCheck01', sastEnabled: true, serverUrl: 'http://10.32.0.46', sourceEncoding: '1', useOwnServerCredentials: true, username: '', vulnerabilityThresholdResult: 'FAILURE', waitForResultsEnabled: true])
-      }
-    }
-  }
+node('built-in'){
+stage('preparation')
+{git 'https://github.com/vbarhate/JavaVulnerableLabE.git'}
+step([$class: 'CxScanBuilder', comment: '', credentialsId: 'dc0bb7ff-05d6-4d4b-adcc-7db3fc4cd5b9', customFields: '', excludeFolders: '', exclusionsSetting: 'job', failBuildOnNewResults: false, failBuildOnNewSeverity: 'HIGH', filterPattern: '!**/*.java', fullScanCycle: 10, groupId: '1', isProxy: false, password: '{AQAAABAAAAAQBdaBT2Fg/0TU2Hp/eToUCMcAvpps8w3txpbZkSQiBLE=}', preset: '0', projectName: 'pipelinCheck01', sastEnabled: true, serverUrl: 'http://10.32.0.46', sourceEncoding: '1', useOwnServerCredentials: true, username: '', vulnerabilityThresholdResult: 'FAILURE', waitForResultsEnabled: true])}
 }
